@@ -34,7 +34,7 @@ public abstract class ParticleDisplay {
                     if (!manager.isVisiblePlayer(player, center, squared)) continue;
 
                     if (hasColorDataType && particle == Particle.valueOf("ENTITY_EFFECT")) {
-                        player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.color);
+                        player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.color == null ? Color.WHITE : options.color);
                     } else {
                         player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data);
                     }
