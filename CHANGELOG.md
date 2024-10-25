@@ -1,5 +1,12 @@
 # CHANGELOG
 
+# 10.3 - 10.4
+
+ - These releases got somewhat intertwined
+ - Some fixes for colored particles
+ - Update to Java 8
+ - Update Apache commons
+
 # 10.2
 
  - Merge the targetPlayer and targetPlayers API
