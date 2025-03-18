@@ -4,6 +4,7 @@
 
  - Add "particleForceShow" effect parameter, defaults to false  
    Only used in 1.21.4 and up, forces particle visibility beyond 10 blocks
+ - Add EffectManager.setForceShow API method to globally force-show all particles
  - Update default particle types to work in modern and legacy Minecraft versions
 
 # 10.3 - 10.4

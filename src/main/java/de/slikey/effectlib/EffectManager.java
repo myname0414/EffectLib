@@ -54,6 +54,7 @@ public class EffectManager implements Disposable {
     private boolean debug = false;
     private boolean stackTraces = true;
     private int visibleRange = 32;
+    private boolean forceShow = false;
     private File imageCacheFolder;
     private Map<String, BufferedImage[]> imageCache;
     private final Set<UUID> ignoredPlayers = new HashSet<>();
@@ -377,6 +378,14 @@ public class EffectManager implements Disposable {
 
     public void setParticleRange(int range) {
         visibleRange = range;
+    }
+
+    public boolean getForceShow() {
+        return forceShow;
+    }
+
+    public void setForceShow(boolean force) {
+        forceShow = force;
     }
 
     public Plugin getOwningPlugin() {

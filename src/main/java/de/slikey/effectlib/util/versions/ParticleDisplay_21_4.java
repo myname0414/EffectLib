@@ -16,15 +16,16 @@ public class ParticleDisplay_21_4 extends ParticleDisplay {
 
 	protected void spawnParticle(Particle particle, ParticleOptions options, Location center, double range, List<Player> targetPlayers) {
 		try {
+			boolean forceShow = options.forceShow || manager.getForceShow();
 			if (targetPlayers == null) {
 				double squared = range * range;
 				for (final Player player : Bukkit.getOnlinePlayers()) {
 					if (!manager.isVisiblePlayer(player, center, squared)) continue;
 
 					if (hasColorDataType && particle == Particle.valueOf("ENTITY_EFFECT")) {
-						player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.color == null ? Color.WHITE : options.color, options.forceShow);
+						player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.color == null ? Color.WHITE : options.color, forceShow);
 					} else {
-						player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data, options.forceShow);
+						player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data, forceShow);
 					}
 
 					displayFakeBlock(player, center, options);
@@ -34,7 +35,7 @@ public class ParticleDisplay_21_4 extends ParticleDisplay {
 
 			for (final Player player : targetPlayers) {
 				if (manager.isPlayerIgnored(player)) continue;
-				player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data, options.forceShow);
+				player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data, forceShow);
 				displayFakeBlock(player, center, options);
 			}
 
