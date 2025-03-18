@@ -9,6 +9,7 @@ import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.MathUtils;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class DnaEffect extends Effect {
@@ -22,13 +23,13 @@ public class DnaEffect extends Effect {
     /**
      * Particle of base 1
      */
-    public Particle particleBase1 = Particle.WATER_WAKE;
+    public Particle particleBase1 = ParticleUtil.getParticle("WATER_WAKE");
     public Color colorBase1 = null;
 
     /**
      * Particle of base 2
      */
-    public Particle particleBase2 = Particle.REDSTONE;
+    public Particle particleBase2 = ParticleUtil.getParticle("REDSTONE");
     public Color colorBase2 = null;
 
     /**

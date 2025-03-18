@@ -8,6 +8,7 @@ import org.bukkit.util.Vector;
 import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.RandomUtils;
 
 public class CloudEffect extends Effect {
@@ -23,7 +24,7 @@ public class CloudEffect extends Effect {
     /**
      * Particle of the rain/snow
      */
-    public Particle mainParticle = Particle.DRIP_WATER;
+    public Particle mainParticle = ParticleUtil.getParticle("DRIP_WATER");
     public int mainParticles = 15;
 
     /**

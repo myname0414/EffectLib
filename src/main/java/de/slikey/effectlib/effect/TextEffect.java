@@ -13,6 +13,7 @@ import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.MathUtils;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.VectorUtils;
 import de.slikey.effectlib.util.StringParser;
 
@@ -74,7 +75,7 @@ public class TextEffect extends Effect {
         super(effectManager);
         font = new Font("Tahoma", Font.PLAIN, 16);
         type = EffectType.REPEATING;
-        particle = Particle.FIREWORKS_SPARK;
+        particle = ParticleUtil.getParticle("FIREWORKS_SPARK");
         period = 40;
         iterations = 20;
     }

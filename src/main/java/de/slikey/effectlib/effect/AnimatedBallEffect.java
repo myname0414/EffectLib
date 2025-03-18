@@ -8,6 +8,7 @@ import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.MathUtils;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.VectorUtils;
 
 /**
@@ -56,7 +57,7 @@ public class AnimatedBallEffect extends Effect {
     public AnimatedBallEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
-        particle = Particle.SPELL_WITCH;
+        particle = ParticleUtil.getParticle("SPELL_WITCH");
         iterations = 500;
         period = 1;
     }

@@ -8,6 +8,7 @@ import org.bukkit.util.Vector;
 import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.RandomUtils;
 import de.slikey.effectlib.util.VectorUtils;
 
@@ -16,13 +17,13 @@ public class AtomEffect extends Effect {
     /**
      * ParticleType of the nucleus
      */
-    public Particle particleNucleus = Particle.DRIP_WATER;
+    public Particle particleNucleus = ParticleUtil.getParticle("DRIP_WATER");
     public Color colorNucleus = null;
 
     /**
      * ParticleType of orbitals
      */
-    public Particle particleOrbital = Particle.DRIP_LAVA;
+    public Particle particleOrbital = ParticleUtil.getParticle("DRIP_LAVA");
     public Color colorOrbital = null;
 
     /**

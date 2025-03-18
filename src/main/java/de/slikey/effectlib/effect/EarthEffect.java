@@ -12,13 +12,14 @@ import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.MathUtils;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.RandomUtils;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class EarthEffect extends Effect {
 
-    public Particle particleLand = Particle.VILLAGER_HAPPY;
-    public Particle particleOcean = Particle.DRIP_WATER;
+    public Particle particleLand = ParticleUtil.getParticle("VILLAGER_HAPPY");
+    public Particle particleOcean = ParticleUtil.getParticle("DRIP_WATER");
 
     public Color colorLand = null;
     public Color colorOcean = null;

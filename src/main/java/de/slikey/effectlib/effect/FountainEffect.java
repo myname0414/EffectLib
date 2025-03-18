@@ -7,6 +7,7 @@ import org.bukkit.util.Vector;
 import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.RandomUtils;
 
 public class FountainEffect extends Effect {
@@ -54,7 +55,7 @@ public class FountainEffect extends Effect {
     public FountainEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
-        particle = Particle.WATER_SPLASH;
+        particle = ParticleUtil.getParticle("WATER_SPLASH");
         period = 2;
         iterations = 100;
     }

@@ -8,6 +8,7 @@ import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.MathUtils;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class CircleEffect extends Effect {
@@ -81,7 +82,7 @@ public class CircleEffect extends Effect {
     public CircleEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
-        particle = Particle.VILLAGER_HAPPY;
+        particle = ParticleUtil.getParticle("VILLAGER_HAPPY");
         period = 2;
         iterations = 50;
     }

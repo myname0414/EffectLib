@@ -7,6 +7,7 @@ import org.bukkit.util.Vector;
 import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.MathUtils;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.VectorUtils;
 
 /**
@@ -48,7 +49,7 @@ public class HeartEffect extends Effect {
 
     public HeartEffect(EffectManager effectManager) {
         super(effectManager);
-        particle = Particle.CRIT_MAGIC;
+        particle = ParticleUtil.getParticle("CRIT_MAGIC");
     }
 
     @Override

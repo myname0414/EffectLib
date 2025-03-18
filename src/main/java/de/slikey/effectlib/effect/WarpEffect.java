@@ -6,6 +6,7 @@ import org.bukkit.Particle;
 import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
+import de.slikey.effectlib.util.ParticleUtil;
 
 public class WarpEffect extends Effect {
 
@@ -37,7 +38,7 @@ public class WarpEffect extends Effect {
     public WarpEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
-        particle = Particle.FIREWORKS_SPARK;
+        particle = ParticleUtil.getParticle("FIREWORKS_SPARK");
         period = 2;
         iterations = rings;
     }

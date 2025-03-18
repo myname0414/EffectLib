@@ -7,12 +7,13 @@ import org.bukkit.Particle;
 import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.RandomUtils;
 
 public class ExplodeEffect extends Effect {
 
-    public Particle particle1 = Particle.EXPLOSION_NORMAL;
-    public Particle particle2 = Particle.EXPLOSION_HUGE;
+    public Particle particle1 = ParticleUtil.getParticle("EXPLOSION_NORMAL");
+    public Particle particle2 = ParticleUtil.getParticle("EXPLOSION_HUGE");
 
     /**
      * Amount of spawned smoke-sparks

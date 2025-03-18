@@ -7,6 +7,7 @@ import org.bukkit.util.Vector;
 import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.RandomUtils;
 
 public class SquareEffect extends Effect {
@@ -39,7 +40,7 @@ public class SquareEffect extends Effect {
 	public SquareEffect(EffectManager effectManager) {
 		super(effectManager);
 		type = EffectType.REPEATING;
-		particle = Particle.SPELL_MOB;
+		particle = ParticleUtil.getParticle("SPELL_MOB");
 		iterations = 500;
 		period = 1;
 	}

@@ -6,6 +6,7 @@ import org.bukkit.Particle;
 import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.RandomUtils;
 
 public class SmokeEffect extends Effect {
@@ -18,7 +19,7 @@ public class SmokeEffect extends Effect {
     public SmokeEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
-        particle = Particle.SMOKE_NORMAL;
+        particle = ParticleUtil.getParticle("SMOKE_NORMAL");
         period = 1;
         iterations = 300;
     }

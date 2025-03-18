@@ -12,6 +12,7 @@ import org.bukkit.util.Vector;
 import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.RandomUtils;
 
 public class DiscoBallEffect extends Effect {
@@ -30,7 +31,7 @@ public class DiscoBallEffect extends Effect {
      * Particle of the sphere and of the lines
      */
     public Particle sphereParticle = Particle.FLAME;
-    public Particle lineParticle = Particle.REDSTONE;
+    public Particle lineParticle = ParticleUtil.getParticle("REDSTONE");
 
     public Color sphereColor = null;
     public Color lineColor = null;

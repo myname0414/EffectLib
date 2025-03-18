@@ -17,6 +17,8 @@ import de.slikey.effectlib.util.RandomUtils;
 
 public class BigBangEffect extends Effect {
 
+    private static EntityType fireworkEntityType;
+
     public FireworkEffect.Type fireworkType = FireworkEffect.Type.BURST;
     public Color color2 = Color.ORANGE;
     public Color color3 = Color.BLACK;
@@ -31,6 +33,17 @@ public class BigBangEffect extends Effect {
     protected int step = 0;
 
     protected FireworkEffect firework;
+
+    private static void initializeConstants() {
+        if (fireworkEntityType != null) return;
+
+        try {
+            fireworkEntityType = EntityType.valueOf("FIREWORK_ROCKET");
+        } catch (Exception legacy) {
+            fireworkEntityType = EntityType.valueOf("FIREWORK");
+        }
+
+    }
 
     public BigBangEffect(EffectManager effectManager) {
         super(effectManager);
@@ -75,8 +88,9 @@ public class BigBangEffect extends Effect {
     }
 
     protected void detonate(Location location, Vector v) {
+        initializeConstants();
         if (location != null && location.getWorld() != null) {
-            final Firework firework = (Firework) location.getWorld().spawnEntity(location.add(v), EntityType.FIREWORK);
+            final Firework firework = (Firework) location.getWorld().spawnEntity(location.add(v), fireworkEntityType);
             location.subtract(v);
             FireworkMeta meta = firework.getFireworkMeta();
             meta.setPower(0);

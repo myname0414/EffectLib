@@ -12,6 +12,7 @@ import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.math.EquationStore;
 import de.slikey.effectlib.math.EquationTransform;
+import de.slikey.effectlib.util.ParticleUtil;
 
 public class PlotEffect extends Effect {
 
@@ -58,7 +59,7 @@ public class PlotEffect extends Effect {
     public PlotEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
-        particle = Particle.REDSTONE;
+        particle = ParticleUtil.getParticle("REDSTONE");
         period = 1;
         iterations = 100;
     }

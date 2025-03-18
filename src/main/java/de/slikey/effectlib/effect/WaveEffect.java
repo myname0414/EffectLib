@@ -12,11 +12,12 @@ import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.MathUtils;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class WaveEffect extends Effect {
 
-    public Particle mainParticle = Particle.DRIP_WATER;
+    public Particle mainParticle;
     public Particle cloudParticle = Particle.CLOUD;
     public Color cloudColor = null;
 
@@ -83,7 +84,7 @@ public class WaveEffect extends Effect {
 
     public WaveEffect(EffectManager effectManager) {
         super(effectManager);
-
+        mainParticle = ParticleUtil.getParticle("DRIP_WATER");
         type = EffectType.REPEATING;
         period = 5;
         iterations = 50;

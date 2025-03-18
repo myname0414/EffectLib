@@ -7,6 +7,7 @@ import org.bukkit.util.Vector;
 import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
+import de.slikey.effectlib.util.ParticleUtil;
 import de.slikey.effectlib.util.VectorUtils;
 import de.slikey.effectlib.math.EquationStore;
 import de.slikey.effectlib.math.EquationTransform;
@@ -94,7 +95,7 @@ public class EquationEffect extends Effect {
     public EquationEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
-        particle = Particle.REDSTONE;
+        particle = ParticleUtil.getParticle("REDSTONE");
         period = 1;
         iterations = 100;
     }
