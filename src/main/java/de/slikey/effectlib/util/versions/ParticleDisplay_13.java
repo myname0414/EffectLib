@@ -25,5 +25,4 @@ public class ParticleDisplay_13 extends ParticleDisplay {
             }
         }, options.blockDuration);
     }
-
 }
