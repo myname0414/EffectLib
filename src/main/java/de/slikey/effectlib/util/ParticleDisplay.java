@@ -16,13 +16,14 @@ import de.slikey.effectlib.util.versions.ParticleDisplay_12;
 import de.slikey.effectlib.util.versions.ParticleDisplay_13;
 import de.slikey.effectlib.util.versions.ParticleDisplay_17;
 import de.slikey.effectlib.util.versions.ParticleDisplay_19;
+import de.slikey.effectlib.util.versions.ParticleDisplay_21_4;
 
 public abstract class ParticleDisplay {
 
     protected EffectManager manager;
 
-    private static boolean hasColorTransition = false;
-    private static boolean hasColorDataType = false;
+    protected static boolean hasColorTransition = false;
+    protected static boolean hasColorDataType = false;
 
     public abstract void display(Particle particle, ParticleOptions options, Location center, double range, List<Player> targetPlayers);
 
@@ -100,26 +101,31 @@ public abstract class ParticleDisplay {
         ParticleDisplay display;
 
         try {
-            Particle.valueOf("DUST");
-            display = new ParticleDisplay_20_5();
-            hasColorTransition = true;
-            hasColorDataType = true;
-        } catch (Throwable not20_5) {
+            Player.class.getMethod("spawnParticle", Location.class, Integer.TYPE, Double.TYPE, Double.TYPE, Double.TYPE, Object.class, Boolean.TYPE);
+            display = new ParticleDisplay_21_4();
+        } catch (Throwable not21_4) {
             try {
-                Particle.valueOf("SHRIEK");
-                display = new ParticleDisplay_19();
+                Particle.valueOf("DUST");
+                display = new ParticleDisplay_20_5();
                 hasColorTransition = true;
-            } catch (Throwable not19) {
+                hasColorDataType = true;
+            } catch (Throwable not20_5) {
                 try {
-                    Particle.valueOf("VIBRATION");
-                    display = new ParticleDisplay_17();
+                    Particle.valueOf("SHRIEK");
+                    display = new ParticleDisplay_19();
                     hasColorTransition = true;
-                } catch (Throwable not17) {
+                } catch (Throwable not19) {
                     try {
-                        Particle.valueOf("SQUID_INK");
-                        display = new ParticleDisplay_13();
-                    } catch (Throwable not13) {
-                        display = new ParticleDisplay_12();
+                        Particle.valueOf("VIBRATION");
+                        display = new ParticleDisplay_17();
+                        hasColorTransition = true;
+                    } catch (Throwable not17) {
+                        try {
+                            Particle.valueOf("SQUID_INK");
+                            display = new ParticleDisplay_13();
+                        } catch (Throwable not13) {
+                            display = new ParticleDisplay_12();
+                        }
                     }
                 }
             }

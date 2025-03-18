@@ -72,6 +72,7 @@ public abstract class Effect implements Runnable {
     public float particleOffsetY = 0;
     public float particleOffsetZ = 0;
     public float particleSize = 1;
+    public boolean particleForceShow = true;
     public boolean asynchronous = true;
     public boolean disappearWithOriginEntity = false;
     public boolean disappearWithTargetEntity = false;
@@ -763,7 +764,7 @@ public abstract class Effect implements Runnable {
                 currentToColor = toColorList.get(ThreadLocalRandom.current().nextInt(colorList.size()));
             }
 
-            ParticleOptions options = new ParticleOptions(particleOffsetX, particleOffsetY, particleOffsetZ, speed, amount, particleSize, currentColor, currentToColor, arrivalTime, material, materialData, blockData, blockDuration, shriekDelay, sculkChargeRotation);
+            ParticleOptions options = new ParticleOptions(particleOffsetX, particleOffsetY, particleOffsetZ, speed, amount, particleSize, particleForceShow, currentColor, currentToColor, arrivalTime, material, materialData, blockData, blockDuration, shriekDelay, sculkChargeRotation);
             options.target = target;
 
             effectManager.display(particle, options, location, visibleRange, targetPlayers);

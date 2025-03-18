@@ -1,5 +1,10 @@
 # CHANGELOG
 
+# 10.5
+
+ - Add "particleForceShow" effect parameter, defaults to true  
+   Only used in 1.21.4 and up, forces particle visibility beyond 10 blocks
+
 # 10.3 - 10.4
 
  - These releases got somewhat intertwined

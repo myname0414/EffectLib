@@ -30,6 +30,8 @@ public class ParticleOptions {
     public int shriekDelay;
     public float sculkChargeRotation;
 
+    public boolean forceShow = true;
+
     public ParticleOptions() {
 
     }
@@ -92,6 +94,25 @@ public class ParticleOptions {
         this.blockDuration = blockDuration;
         this.shriekDelay = shriekDelay;
         this.sculkChargeRotation = sculkChargeRotation;
+    }
+
+    public ParticleOptions(float offsetX, float offsetY, float offsetZ, float speed, int amount, float size, boolean forceShow, Color color, Color toColor, int arrivalTime, Material material, byte materialData, String blockData, long blockDuration, int shriekDelay, float sculkChargeRotation) {
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
+        this.offsetZ = offsetZ;
+        this.speed = speed;
+        this.amount = amount;
+        this.size = size;
+        this.color = color;
+        this.toColor = toColor;
+        this.material = material;
+        this.materialData = materialData;
+        this.arrivalTime = arrivalTime;
+        this.blockData = blockData;
+        this.blockDuration = blockDuration;
+        this.shriekDelay = shriekDelay;
+        this.sculkChargeRotation = sculkChargeRotation;
+        this.forceShow = forceShow;
     }
 
 }
