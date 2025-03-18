@@ -124,7 +124,7 @@ public abstract class ParticleDisplay {
                 for (final Player player : Bukkit.getOnlinePlayers()) {
                     if (!manager.isVisiblePlayer(player, center, squared)) continue;
 
-                    if (hasColorDataType && particle == Particle.valueOf("ENTITY_EFFECT")) {
+                    if (hasColorDataType && particle == SPELL_MOB) {
                         player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.color == null ? Color.WHITE : options.color);
                     } else {
                         player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data);
@@ -191,15 +191,38 @@ public abstract class ParticleDisplay {
         ParticleDisplay display;
 
         try {
-            Player.class.getMethod("spawnParticle", Location.class, Integer.TYPE, Double.TYPE, Double.TYPE, Double.TYPE, Object.class, Boolean.TYPE);
+            // @NotNull Particle var1, @NotNull Location var2, int var3, double var4, double var6, double var8, double var10, @Nullable T var12, boolean var13
+            // particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data, options.forceShow
+            Player.class.getMethod("spawnParticle", Particle.class, Location.class, Integer.TYPE, Double.TYPE, Double.TYPE, Double.TYPE, Double.TYPE, Object.class, Boolean.TYPE);
             display = new ParticleDisplay_21_4();
+            hasColorTransition = true;
+            hasColorDataType = true;
         } catch (Throwable not21_4) {
+            // TODO: This could all be cleaned up a bit.
             try {
-                // TODO: Maybe look for Player.sendBlockChange here instead of SQUID_INK?
-                Particle.valueOf("SQUID_INK");
+                Particle.valueOf("DUST");
                 display = new ParticleDisplay_13();
-            } catch (Throwable not13) {
-                display = new ParticleDisplay_12();
+                hasColorTransition = true;
+                hasColorDataType = true;
+            } catch (Throwable not20_5) {
+                try {
+                    Particle.valueOf("SHRIEK");
+                    display = new ParticleDisplay_13();
+                    hasColorTransition = true;
+                } catch (Throwable not19) {
+                    try {
+                        Particle.valueOf("VIBRATION");
+                        display = new ParticleDisplay_13();
+                        hasColorTransition = true;
+                    } catch (Throwable not17) {
+                        try {
+                            Particle.valueOf("SQUID_INK");
+                            display = new ParticleDisplay_13();
+                        } catch (Throwable not13) {
+                            display = new ParticleDisplay_12();
+                        }
+                    }
+                }
             }
         }
 
