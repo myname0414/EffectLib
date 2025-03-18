@@ -72,7 +72,7 @@ public abstract class Effect implements Runnable {
     public float particleOffsetY = 0;
     public float particleOffsetZ = 0;
     public float particleSize = 1;
-    public boolean particleForceShow = true;
+    public boolean particleForceShow = false;
     public boolean asynchronous = true;
     public boolean disappearWithOriginEntity = false;
     public boolean disappearWithTargetEntity = false;

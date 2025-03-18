@@ -2,7 +2,7 @@
 
 # 10.5
 
- - Add "particleForceShow" effect parameter, defaults to true  
+ - Add "particleForceShow" effect parameter, defaults to false  
    Only used in 1.21.4 and up, forces particle visibility beyond 10 blocks
  - Update default particle types to work in modern and legacy Minecraft versions
 

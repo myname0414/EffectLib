@@ -30,7 +30,7 @@ public class ParticleOptions {
     public int shriekDelay;
     public float sculkChargeRotation;
 
-    public boolean forceShow = true;
+    public boolean forceShow = false;
 
     public ParticleOptions() {
 
