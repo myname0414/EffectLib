@@ -1,5 +1,7 @@
 # CHANGELOG
 
+# 10.6
+
 # 10.5
 
  - Add "particleForceShow" effect parameter, defaults to false  
