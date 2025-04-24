@@ -1,6 +1,6 @@
 # CHANGELOG
 
-# 11.0
+# 10.10
 
  - Some fixes to backwards-compatibility.
    This should work back to at least 1.19, maybe earlier.
