@@ -1,6 +1,11 @@
 # CHANGELOG
 
-# 10.6
+# 11.0
+
+ - Some fixes to backwards-compatibility.
+   This should work back to at least 1.19, maybe earlier.
+ - This involved completely re-working the plugin architecture to be a multi-module project,
+   there may be bugs.
 
 # 10.5
 

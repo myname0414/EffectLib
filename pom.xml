@@ -3,12 +3,18 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.elmakers.mine.bukkit</groupId>
-	<artifactId>EffectLib</artifactId>
-	<version>10.6-SNAPSHOT</version>
+	<artifactId>EffectLib-parent</artifactId>
+	<version>11.0-SNAPSHOT</version>
 
-	<name>EffectLib</name>
-	<description>A library for Bukkit plugins to make complicated particle effects</description>
-	<url>https://github.com/elBukkit/EffectLib/</url>
+	<name>EffectLib-parent</name>
+	<description>A multi-module container for EffectLib compatibility</description>
+
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>Compatibility</module>
+		<module>EffectLib</module>
+	</modules>
 
 	<organization>
 		<name>elMakers</name>
@@ -68,140 +74,5 @@
 			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
 	</repositories>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.spigotmc</groupId>
-			<artifactId>spigot-api</artifactId>
-			<!--<version>1.20.5-R0.1-SNAPSHOT</version>-->
-			<!--<version>1.19.3-R0.1-SNAPSHOT</version>-->
-			<!--<version>1.13-R0.1-SNAPSHOT</version>-->
-			<!--<version>1.9-R0.1-SNAPSHOT</version>-->
-			<version>1.21.4-R0.1-SNAPSHOT</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.elmakers.math</groupId>
-			<artifactId>exp4j</artifactId>
-			<version>1.0</version>
-			<scope>compile</scope>
-		</dependency>
-	</dependencies>
-
-	<build>
-
-		<resources>
-			<resource>
-				<directory>src/main/resources/</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.11.0</version>
-				<configuration>
-					<source>8</source>
-					<target>8</target>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.4.1</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
-						<configuration>
-							<relocations>
-								<relocation>
-									<pattern>net.objecthunter.exp4j</pattern>
-									<shadedPattern>de.slikey.exp4j</shadedPattern>
-								</relocation>
-							</relocations>
-							<filters>
-								<filter>
-									<artifact>com.elmakers.math:exp4j</artifact>
-									<excludes>
-										<exclude>META-INF/MANIFEST.MF</exclude>
-									</excludes>
-								</filter>
-							</filters>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- Generate javadocs -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<additionalJOption>-Xdoclint:none</additionalJOption>
-				</configuration>
-				<version>3.5.0</version>
-				<executions>
-					<execution>
-						<phase>deploy</phase>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- Release sources alongside the compiled jar -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>3.2.1</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- Sign with GPG -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<version>3.0.1</version>
-				<executions>
-					<execution>
-						<id>sign-artifacts</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- Deploy to central repository -->
-			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.13</version>
-				<extensions>true</extensions>
-				<configuration>
-					<serverId>ossrh</serverId>
-					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-					<autoReleaseAfterClose>true</autoReleaseAfterClose>
-				</configuration>
-			</plugin>
-		</plugins>
-
-	</build>
 
 </project>
