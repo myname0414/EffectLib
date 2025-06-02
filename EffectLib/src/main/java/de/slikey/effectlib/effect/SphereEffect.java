@@ -1,6 +1,5 @@
 package de.slikey.effectlib.effect;
 
-import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -62,6 +61,7 @@ public class SphereEffect extends Effect {
             v = RandomUtils.getRandomVector().multiply(radius);
             location.add(v);
             display(particle, location);
+
             location.subtract(v);
         }
     }
